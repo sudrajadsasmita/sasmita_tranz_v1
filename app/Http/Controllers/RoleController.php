@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\API\BaseController;
-use App\Models\MaVehicle;
+use App\Models\MaRole;
 use Illuminate\Http\Request;
 
-class VehicleController extends BaseController
+class RoleController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class VehicleController extends BaseController
      */
     public function index()
     {
-        $items = MaVehicle::all();
-        return $this->sendResponse($items, "Vehicles fetched");
+        $items = MaRole::all();
+        // dd($items);
+        return $this->sendResponse($items, "Fetching data successfully...");
     }
 
     /**

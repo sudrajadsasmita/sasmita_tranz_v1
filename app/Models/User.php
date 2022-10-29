@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_id'
     ];
 
     /**
@@ -62,5 +64,15 @@ class User extends Authenticatable
     public function drivers(): HasMany
     {
         return $this->hasMany(TaCrew::class, 'driver_id', 'id');
+    }
+
+    /**
+     * Get the profile that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function profile(): BelongsTo
+    {
+        return $this->belongsTo(TaProfile::class, 'profile_id', 'id');
     }
 }

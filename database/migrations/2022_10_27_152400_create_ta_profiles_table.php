@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('ta_profiles', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
             $table->date("date_birth");
             $table->string("phone");
             $table->text("address");
-            $table->string("photo");
+            $table->string("photo")->nullable();
             $table->foreignId("role_id")->constrained("ma_roles")->onDelete("cascade");
             $table->timestamps();
             $table->softDeletes();

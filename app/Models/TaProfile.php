@@ -17,6 +17,7 @@ class TaProfile extends Model
         'phone',
         'address',
         'photo',
+        'role_id'
     ];
     /**
      * Get the role that owns the TaProfile

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("code");
             $table->foreignId("transaction_detail_id")->constrained("ta_transaction_details")->onDelete("cascade");
             $table->string("proof_of_payment");
-            $table->foreignId("transaction_status_id")->constrained("ma_transactions_statuses")->onDelete("cascade");
+            $table->foreignId("transaction_status_id")->constrained("ma_transaction_statuses")->onDelete("cascade");
             $table->foreignId("trip_statuses_id")->constrained("ma_trip_statuses")->onDelete("cascade");
             $table->timestamps();
             $table->softDeletes();
